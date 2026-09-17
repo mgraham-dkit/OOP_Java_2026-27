@@ -1,4 +1,4 @@
-package solutions.week01.revision;
+package solutions.week01.revision.basic_io;
 
 import java.util.Scanner;
 
