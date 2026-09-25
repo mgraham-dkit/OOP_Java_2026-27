@@ -10,7 +10,7 @@ public class NumberReading {
 
         int max = findMax(num1, num2, num3);
 
-        System.out.println(max + " is the max value of [" + num1 + ", " + num2 + ", " + num3 + "]");
+        displayOutput(max + " is the max value of [" + num1 + ", " + num2 + ", " + num3 + "]");
     }
 
     public static void displayOutput(String text){
