@@ -18,5 +18,11 @@ public class StudentTestBed {
         tester01.age = 21;
         System.out.println("Tester01 age: " + tester01.age);
         System.out.println("Tester02 age: " + tester02.age);
+
+
+        System.out.println("______________________");
+        System.out.println("Displaying my students:");
+        tester01.display();
+        tester02.display();
     }
 }
