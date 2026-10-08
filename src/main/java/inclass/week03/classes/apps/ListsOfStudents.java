@@ -12,40 +12,45 @@ public class ListsOfStudents {
 
         Scanner input = new Scanner(System.in);
 
-        // ********************************************************************
-        // BUILDING LISTS OF OBJECTS
-        // ********************************************************************
-        // If you need to create and store *multiple* students in a list, the following steps need to be repeated (i.e. looped):
-        // - Data entry
-        // - Object creation
-        // - Save the object
+        for (int i = 0; i < 5; i++) {
+            System.out.println("Enter student " + (i+1) + ":> ");
 
-        // DATA ENTRY:::
-        // To create a Student with user-specified data, ask the user for each piece we need to make a Student (name,
-        // age, id)
-        System.out.print("Student ID: ");
-        String id = input.nextLine();
+            // ********************************************************************
+            // BUILDING LISTS OF OBJECTS
+            // ********************************************************************
+            // If you need to create and store *multiple* students in a list, the following steps need to be repeated (i.e. looped):
+            // - Data entry
+            // - Object creation
+            // - Save the object
 
-        System.out.print("Student name: ");
-        String name = input.nextLine();
+            // DATA ENTRY:::
+            // To create a Student with user-specified data, ask the user for each piece we need to make a Student (name,
+            // age, id)
+            System.out.print("Student ID: ");
+            String id = input.nextLine();
 
-        System.out.print("Age: ");
-        int age = input.nextInt();
-        input.nextLine();
+            System.out.print("Student name: ");
+            String name = input.nextLine();
 
-        // OBJECT CREATION:::
-        // Create the new Student
-        Student s = new Student();
+            System.out.print("Age: ");
+            int age = input.nextInt();
+            input.nextLine();
 
-        // Store the values the user has entered within our new Student
-        s.id = id;
-        s.name = name;
-        s.age = age;
+            // OBJECT CREATION:::
+            // Create the new Student
+            Student s = new Student();
 
-        // SAVING THE OBJECT:::
-        // Save the new student in the list so we have access to it for the rest of the program
-        students.add(s);
+            // Store the values the user has entered within our new Student
+            s.id = id;
+            s.name = name;
+            s.age = age;
 
+            // SAVING THE OBJECT:::
+            // Save the new student in the list so we have access to it for the rest of the program
+            students.add(s);
+
+            s.display();
+        }
         // ********************************************************************
         // WORKING WITH LISTS OF OBJECTS:
         // ********************************************************************
