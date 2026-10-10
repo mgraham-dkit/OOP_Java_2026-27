@@ -1,14 +1,32 @@
 package solutions.week03.introducing_classes.apps;
 
+import com.sun.security.jgss.GSSUtil;
 import solutions.week03.introducing_classes.entities.Rectangle;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class RectanglesTestBed {
+    public static Rectangle findLargestArea(ArrayList<Rectangle> rectangles){
+        double maxArea = -1;
+        Rectangle largestRect = null;
+
+        for (int i = 0; i < rectangles.size(); i++) {
+            Rectangle current = rectangles.get(i);
+            double currentArea = current.calcArea();
+
+            // If the current rectangle's area is bigger than previous biggest, save it
+            if(currentArea > maxArea){
+                maxArea = currentArea;
+                largestRect = current;
+            }
+        }
+        return largestRect;
+    }
+
     static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        ArrayList<Rectangle> rectangles = new ArrayList();
+        ArrayList<Rectangle> rectangles = new ArrayList<>();
 
         for (int i = 0; i < 5; i++) {
             System.out.print("Please enter length: ");
@@ -35,5 +53,10 @@ public class RectanglesTestBed {
         //    Rectangle rectangle = rectangles.get(i);
         //    rectangle.display();
         // }
+
+        // Find rectangle with largest area
+        Rectangle largest = findLargestArea(rectangles);
+        System.out.println("Largest rectangle: ");
+        largest.display();
     }
 }
