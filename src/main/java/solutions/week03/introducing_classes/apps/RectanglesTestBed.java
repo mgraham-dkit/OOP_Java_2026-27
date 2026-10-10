@@ -7,6 +7,20 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class RectanglesTestBed {
+    public static ArrayList<Rectangle> findByColour(ArrayList<Rectangle> rectangles, String targetColour){
+        ArrayList<Rectangle> matching = new ArrayList<>();
+
+        for (int i = 0; i < rectangles.size(); i++) {
+            Rectangle current = rectangles.get(i);
+
+            // If the current rectangle's colour matches the target colour
+            if(targetColour.equalsIgnoreCase(current.colour)){
+                matching.add(current);
+            }
+        }
+        return matching;
+    }
+
     public static Rectangle findLargestArea(ArrayList<Rectangle> rectangles){
         double maxArea = -1;
         Rectangle largestRect = null;
@@ -63,6 +77,7 @@ public class RectanglesTestBed {
 
             rectangles.add(rect);
         }
+        System.out.println("------------------------------------");
 
         // Loop through every rectangle in the list and ask it to display itself
         for (Rectangle rectangle : rectangles) {
@@ -74,15 +89,36 @@ public class RectanglesTestBed {
         //    rectangle.display();
         // }
 
+        System.out.println("------------------------------------");
+
         // Find rectangle with largest area
         Rectangle largest = findLargestArea(rectangles);
         System.out.println("Largest rectangle: ");
         largest.display();
 
-        // Find rectangle with largest area
+        System.out.println("------------------------------------");
+
+        // Find rectangle with smallest width
         int index = indexOfSmallestWidthRectangle(rectangles);
         System.out.println("Index of rectangle with smallest width: " + index);
         Rectangle narrowest = rectangles.get(index);
         narrowest.display();
+
+        System.out.println("------------------------------------");
+
+        // Find rectangles with specific colour
+        String colourTarget = "red";
+        ArrayList<Rectangle> colourMatches = findByColour(rectangles, colourTarget);
+
+        if(colourMatches.isEmpty()){
+            System.out.println("No Rectangles found matching " + colourTarget);
+        }else{
+            System.out.println("Rectangles matching colour \"" + colourTarget + "\":");
+            for (int i = 0; i < colourMatches.size(); i++) {
+                Rectangle current = colourMatches.get(i);
+                current.display();
+            }
+        }
+        System.out.println("------------------------------------");
     }
 }
