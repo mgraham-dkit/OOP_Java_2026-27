@@ -26,7 +26,8 @@ public class BankAccount {
     }
 
     public void display(){
-        System.out.println(this.accountId + ": " + this.name + " has €" + this.balance);
+        System.out.println(this.accountId + ": " + this.name + " has €" + String.format("%.2f", this.balance));
+
     }
 
     public double getBalance(){

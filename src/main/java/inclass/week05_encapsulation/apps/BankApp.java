@@ -30,7 +30,7 @@ public class BankApp {
 
         for (BankAccount account : accounts) {
             account.display();
-            System.out.println("Balance: €" + account.getBalance());
+            System.out.println("Balance: €" + String.format("%.2f", account.getBalance()));
         }
     }
 }
