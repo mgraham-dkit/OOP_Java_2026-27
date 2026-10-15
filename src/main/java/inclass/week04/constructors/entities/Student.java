@@ -1,9 +1,9 @@
 package inclass.week04.constructors.entities;
 
 public class Student {
-    public String name = "John Doe";
-    public int age = 67;
-    public String id = "D0676767";
+    public String name;
+    public int age = 18;
+    public String id;
 
     public Student(String name, int age, String id){
         this.name = name;
