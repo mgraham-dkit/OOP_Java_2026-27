@@ -1,18 +1,24 @@
 package inclass.week05_composition.entities;
 
+import java.time.LocalDate;
+
 public class BankAccount {
     private double balance = 0;
-    public String name;
+    private Person owner;
     public String accountId;
 
-    public BankAccount(String name, String accountId){
-        this.name = name;
+    public BankAccount(Person owner, String accountId){
+        if(owner == null){
+            System.out.println("NULL OWNER!!! UPDATE IMMEDIATELY");
+            this.owner = new Person("NULL OWNER!!!", LocalDate.now());
+        }
         this.accountId = accountId;
     }
 
-    public BankAccount(String name, String accountId, double balance){
-        if(name == null || name.isBlank()){
-            name = "UNKNOWN";
+    public BankAccount(Person owner, String accountId, double balance){
+        if(owner == null){
+            System.out.println("NULL OWNER!!! UPDATE IMMEDIATELY");
+            this.owner = new Person("NULL OWNER!!!", LocalDate.now());
         }
 
         if(balance < 0){
@@ -20,13 +26,13 @@ public class BankAccount {
             balance = 0;
         }
 
-        this.name = name;
+        this.owner = owner;
         this.accountId = accountId;
         this.balance = balance;
     }
 
     public void display(){
-        System.out.println(this.accountId + ": " + this.name + " has €" + String.format("%.2f", this.balance));
+        System.out.println(this.accountId + ": " + this.owner.getName() + " has €" + String.format("%.2f", this.balance));
 
     }
 
