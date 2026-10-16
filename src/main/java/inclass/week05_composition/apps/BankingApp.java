@@ -15,5 +15,8 @@ public class BankingApp {
 
         BankAccount account = new BankAccount(accountHolder, "00001", 1500);
         account.display();
+
+        System.out.println("Account Owner details: " + accountHolder);
+        System.out.println("Bank account details: " + account);
     }
 }

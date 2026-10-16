@@ -47,4 +47,8 @@ public class BankAccount {
             this.balance = newBalance;
         }
     }
+
+    public String toString(){
+        return "BankAccount{owner:" + this.owner + ", accountId:" + this.accountId + ", balance:" + this.balance + "}";
+    }
 }

@@ -27,4 +27,8 @@ public class Person {
     public LocalDate getDateOfBirth(){
         return dateOfBirth;
     }
+
+    public String toString(){
+        return "Person{name:" + this.name + ", dateOfBirth:" + this.getDateOfBirth() + "}";
+    }
 }
