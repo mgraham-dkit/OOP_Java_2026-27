@@ -1,6 +1,7 @@
 package inclass.week05_composition.entities;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 public class Person {
     private String name;
@@ -38,5 +39,24 @@ public class Person {
 
     public String toString(){
         return "Person{name:" + this.name + ", dateOfBirth:" + this.getDateOfBirth() + "}";
+    }
+
+    public int calcAge(){
+        LocalDate now = LocalDate.now();
+
+        long ageInYears = dateOfBirth.until(now, ChronoUnit.YEARS);
+        return (int) ageInYears;
+    }
+
+    public boolean isOlder(Person other){
+        if(other == null){
+            return true;
+        }
+
+        if(this.dateOfBirth.isBefore(other.dateOfBirth)){
+            return true;
+        }
+
+        return false;
     }
 }
