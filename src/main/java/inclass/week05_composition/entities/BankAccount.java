@@ -6,11 +6,15 @@ public class BankAccount {
     private double balance = 0;
     private Person owner;
     public String accountId;
+    private boolean childAccount = false;
 
     public BankAccount(Person owner, String accountId){
         if(owner == null){
             System.out.println("NULL OWNER!!! UPDATE IMMEDIATELY");
             this.owner = new Person("NULL OWNER!!!", LocalDate.now());
+        }else if(owner.calcAge() < 18){
+            System.out.println("Child account required!");
+            childAccount = true;
         }
         this.accountId = accountId;
     }
@@ -19,6 +23,9 @@ public class BankAccount {
         if(owner == null){
             System.out.println("NULL OWNER!!! UPDATE IMMEDIATELY");
             this.owner = new Person("NULL OWNER!!!", LocalDate.now());
+        }else if(owner.calcAge() < 18){
+            System.out.println("Child account required!");
+            childAccount = true;
         }
 
         if(balance < 0){
@@ -32,7 +39,12 @@ public class BankAccount {
     }
 
     public void display(){
-        System.out.println(this.accountId + ": " + this.owner.getName() + " has €" + String.format("%.2f", this.balance));
+        String childStatus = "";
+        if(childAccount){
+            childStatus = " [CHILD ACCOUNT]";
+        }
+        System.out.println(this.accountId + ": " + this.owner.getName() + " has €" + String.format("%.2f",
+                this.balance) + childStatus);
 
     }
 
@@ -49,6 +61,7 @@ public class BankAccount {
     }
 
     public String toString(){
-        return "BankAccount{owner:" + this.owner + ", accountId:" + this.accountId + ", balance:" + this.balance + "}";
+        return "BankAccount{owner:" + this.owner + ", accountId:" + this.accountId + ", balance:" + this.balance +
+                ", childStatus=" + childAccount + "}";
     }
 }
