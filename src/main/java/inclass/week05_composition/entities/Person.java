@@ -20,9 +20,14 @@ public class Person {
             name = "ANONYMOUS";
         }
 
+        LocalDate today = LocalDate.now();
         if(dateOfBirth == null){
             // Default to today's date
-            dateOfBirth = LocalDate.now();
+            dateOfBirth = today;
+        }else if(dateOfBirth.isAfter(today)){
+            System.out.println("ILLEGAL DATE OF BIRTH + " + dateOfBirth);
+            System.out.println("Date of birth can't be in the future");
+            dateOfBirth = today;
         }
 
         this.name = name;
