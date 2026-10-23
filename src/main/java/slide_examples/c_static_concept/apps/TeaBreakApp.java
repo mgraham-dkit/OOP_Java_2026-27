@@ -1,6 +1,6 @@
-package slide_examples.static_concept.apps;
+package slide_examples.c_static_concept.apps;
 
-import slide_examples.static_concept.entities.Cup;
+import slide_examples.c_static_concept.entities.Cup;
 
 import java.util.ArrayList;
 import java.util.Random;

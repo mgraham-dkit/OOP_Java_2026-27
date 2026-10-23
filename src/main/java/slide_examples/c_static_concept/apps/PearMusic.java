@@ -1,8 +1,7 @@
-package slide_examples.static_concept.apps;
+package slide_examples.c_static_concept.apps;
 
-import slide_examples.static_concept.entities.MusicPlayer;
+import slide_examples.c_static_concept.entities.MusicPlayer;
 
-import java.sql.Array;
 import java.util.ArrayList;
 
 public class PearMusic {

@@ -1,7 +1,7 @@
-package slide_examples.composition.apps;
+package slide_examples.d_composition.apps;
 
-import slide_examples.composition.entities.MusicPlayer;
-import slide_examples.composition.entities.Song;
+import slide_examples.d_composition.entities.MusicPlayer;
+import slide_examples.d_composition.entities.Song;
 
 import java.util.ArrayList;
 

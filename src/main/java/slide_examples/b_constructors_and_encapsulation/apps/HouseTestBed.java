@@ -1,7 +1,7 @@
-package slide_examples.constructors_and_encapsulation.apps;
+package slide_examples.b_constructors_and_encapsulation.apps;
 
 
-import slide_examples.constructors_and_encapsulation.entities.House;
+import slide_examples.b_constructors_and_encapsulation.entities.House;
 
 public class HouseTestBed {
     static void main(String[] args) {

@@ -1,6 +1,7 @@
-package slide_examples.composition.entities;
+package slide_examples.d_composition.entities;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MusicPlayer {
     private static int playerCount;

@@ -1,6 +1,6 @@
-package slide_examples.introducing_classes.apps;
+package slide_examples.a_introducing_classes.apps;
 
-import slide_examples.introducing_classes.entities.House;
+import slide_examples.a_introducing_classes.entities.House;
 
 public class HouseTestBed {
     static void main(String[] args) {

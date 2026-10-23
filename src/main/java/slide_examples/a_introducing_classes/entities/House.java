@@ -1,4 +1,4 @@
-package slide_examples.introducing_classes.entities;
+package slide_examples.a_introducing_classes.entities;
 
 public class House {
     // Attributes of a House

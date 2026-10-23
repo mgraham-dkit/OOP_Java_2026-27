@@ -1,4 +1,4 @@
-package slide_examples.constructors_and_encapsulation.entities;
+package slide_examples.b_constructors_and_encapsulation.entities;
 
 public class House {
     // Attributes of a House - these are all private to ensure they cannot be accessed from outside this class!

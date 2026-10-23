@@ -1,4 +1,4 @@
-package slide_examples.static_concept.entities;
+package slide_examples.c_static_concept.entities;
 
 public class Cup {
     private static double height;

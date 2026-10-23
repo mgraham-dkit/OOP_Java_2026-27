@@ -1,4 +1,4 @@
-package slide_examples.composition.entities;
+package slide_examples.d_composition.entities;
 
 public class Song {
     private static int count = 0;
