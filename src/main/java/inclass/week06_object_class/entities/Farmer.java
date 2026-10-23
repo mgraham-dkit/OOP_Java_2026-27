@@ -38,4 +38,8 @@ public class Farmer {
     public String toString(){
         return "Farmer{name="+ name + ", farm=" + farm + ", dateOfBirth="+dateOfBirth+"}";
     }
+
+    public void display(){
+        System.out.println(name + " has a " + farm);
+    }
 }
