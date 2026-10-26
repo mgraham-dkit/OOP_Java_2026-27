@@ -6,11 +6,12 @@ import java.time.LocalDate;
 
 public class ShowOffFarmers {
     static void main(String[] args) {
+        // STUDENT A VERSION!!!
         Farmer hilda = new Farmer("Hilda", "Goat Farm", LocalDate.of(2011, 6, 23));
 
         Farmer john = new Farmer("", null, LocalDate.of(1966, 11, 28));
 
-        System.out.println("Hilda: " + hilda.toString());
-        System.out.println("John: " + john.toString());
+        System.out.println("Hilda: " + hilda);
+        System.out.println("John: " + john);
     }
 }
