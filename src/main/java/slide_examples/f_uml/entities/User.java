@@ -67,7 +67,11 @@ public class User {
             return false;
         }
 
-        return userId == user.userId;
+        if(userId != user.userId){
+            return false;
+        }
+
+        return true;
     }
 
     @Override

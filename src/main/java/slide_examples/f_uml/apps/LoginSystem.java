@@ -14,6 +14,8 @@ public class LoginSystem {
         User u3 = new User("alice_fox", "short");
         ArrayList<User> users = new ArrayList<>(Arrays.asList(u1, u2, u3));
 
+        displayUsers(users);
+
         Scanner input = new Scanner(System.in);
 
         boolean keepRunning = true;
@@ -41,6 +43,12 @@ public class LoginSystem {
             } else {
                 System.out.println("Login failed. Please try again.");
             }
+        }
+    }
+
+    private static void displayUsers(ArrayList<User> users) {
+        for (User user : users) {
+            System.out.println(user);
         }
     }
 
