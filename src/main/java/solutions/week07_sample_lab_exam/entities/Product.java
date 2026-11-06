@@ -2,6 +2,7 @@ package solutions.week07_sample_lab_exam.entities;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Product {
     private static final ArrayList<String> VALID_CATEGORIES =
@@ -87,5 +88,37 @@ public class Product {
         }
 
         return true;
+    }
+
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("Product{");
+        sb.append("productId=");
+        sb.append(productId);
+        sb.append(", productName=");
+        sb.append(productName);
+        sb.append(", productCategory=");
+        sb.append(productCategory);
+        sb.append(", productPrice=");
+        sb.append(productPrice);
+        sb.append("}");
+
+        return sb.toString();
+    }
+
+    public boolean equals(Object other){
+        if(!(other instanceof Product product)){
+            return false;
+        }
+
+        if(!this.productId.equals(product.productId)){
+            return false;
+        }
+
+        return true;
+    }
+
+    public int hashCode(){
+        return Objects.hash(productId);
     }
 }
