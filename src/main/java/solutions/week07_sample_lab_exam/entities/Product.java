@@ -76,4 +76,16 @@ public class Product {
     public double getProductPrice(){
         return productPrice;
     }
+
+    public static boolean checkCategory(String category){
+        if(validateString(category)){
+            return false;
+        }
+
+        if(!Product.VALID_CATEGORIES.contains(category.toLowerCase())){
+            return false;
+        }
+
+        return true;
+    }
 }
