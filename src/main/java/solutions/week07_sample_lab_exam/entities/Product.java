@@ -16,6 +16,7 @@ public class Product {
     public Product(String prodId, String prodName, double price, String prodCategory){
         // Validate price
         if(price <= 0){
+            System.out.print("INVALID PRICE \"" + price + "\". ");
             System.out.println("PRICE MUST BE GREATER THAN 0. DEFAULTING TO 1");
             price = 1;
         }
@@ -23,7 +24,7 @@ public class Product {
         // Validate name
         String dummyName = "DUMMY_PRODUCT_NAME";
         if(validateString(prodName)){
-            System.out.println("PRODUCT NAME CANNOT BE BLANK");
+            System.out.print("PRODUCT NAME CANNOT BE BLANK. ");
             System.out.println("DEFAULTING TO DUMMY VALUE");
             prodName = dummyName;
         }
@@ -31,11 +32,12 @@ public class Product {
         // Validate product ID
         String prefix = "PROD_";
         if(validateString(prodId)){
-            System.out.println("PRODUCT ID CANNOT BE BLANK");
+            System.out.print("PRODUCT ID CANNOT BE BLANK. ");
             System.out.println("DEFAULTING TO DUMMY VALUE");
             prodId = prefix + "DUMMY";
         }else if(!prodId.startsWith("PROD_")){
-            System.out.println("PRODUCT ID MUST START WITH " + prefix);
+            System.out.print("INVALID PRODUCT ID \"" + prodId + "\". ");
+            System.out.print("PRODUCT ID MUST START WITH " + prefix + ". ");
             prodId = prefix + prodId;
             System.out.println("AMENDING SUPPLIED ID TO " + prodId);
         }
@@ -43,11 +45,11 @@ public class Product {
         // Validate product category
         String defaultCategory = Product.VALID_CATEGORIES.getFirst();
         if(validateString(prodCategory)){
-            System.out.println("PRODUCT CATEGORY CANNOT BE BLANK");
+            System.out.print("PRODUCT CATEGORY CANNOT BE BLANK. ");
             System.out.println("SETTING TO DEFAULT VALUE");
             prodCategory = defaultCategory;
         }else if(!Product.VALID_CATEGORIES.contains(prodCategory.toLowerCase())){
-            System.out.println("PRODUCT CATEGORY IS INVALID");
+            System.out.print("PRODUCT CATEGORY \"" + prodCategory + "\" IS INVALID. ");
             System.out.println("SETTING TO DEFAULT VALUE");
             prodCategory = defaultCategory;
         }
