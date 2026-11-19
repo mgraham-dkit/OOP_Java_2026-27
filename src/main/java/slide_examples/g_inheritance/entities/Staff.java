@@ -50,4 +50,8 @@ public class Staff {
                 ", department='" + department + '\'' +
                 '}';
     }
+
+    public String getFirstName(){
+        return this.firstName;
+    }
 }
