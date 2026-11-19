@@ -1,0 +1,68 @@
+package solutions.week09_inheritance_AnimalKingdom.entities;
+
+import java.time.LocalDate;
+
+public class Animal {
+    protected String name;
+    protected double weight;
+    protected LocalDate dob;
+
+    public Animal(String name, double weight, LocalDate dob) {
+        // Name validation
+        if(name == null || name.isBlank()){
+            String defaultName = "DEFAULT_Timmy";
+            System.out.println("NAME MUST CONTAIN REAL DATA - RESETTING TO DEFAULT (" + defaultName + ")");
+            name = defaultName;
+        }
+
+        // Weight validation
+        if(weight <= 0){
+            double defaultWeight = 5;
+            System.out.println("WEIGHT CANNOT BE <= 0. RESETTING TO DEFAULT (" + defaultWeight + ")");
+            weight = defaultWeight;
+        }
+
+        // Date of birth validation
+        LocalDate today = LocalDate.now();
+        if(dob == null || dob.isAfter(today)){
+            System.out.println("CANNOT HAVE A DATE OF BIRTH AFTER CURRENT DATE. RESETTING TO TODAY AS DEFAULT (" + today + ")");
+            dob = today;
+        }
+
+        // VALIDATION COMPLETE
+        // Store validated information
+        this.name = name;
+        this.weight = weight;
+        this.dob = dob;
+    }
+
+    @Override
+    public final boolean equals(Object o) {
+        if (!(o instanceof Animal animal)) {
+            return false;
+        }
+
+        return Double.compare(weight, animal.weight) == 0
+                && name.equals(animal.name)
+                && dob.equals(animal.dob);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name.hashCode();
+        result = 31 * result + Double.hashCode(weight);
+        result = 31 * result + dob.hashCode();
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        // Use the relative class name (i.e. the class that it was created as)
+        // not the name of the class this method is created within
+        return this.getClass().getSimpleName()+"{" +
+                "name='" + name + '\'' +
+                ", weight=" + weight +
+                ", dob=" + dob +
+                '}';
+    }
+}
