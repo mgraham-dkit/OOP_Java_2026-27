@@ -16,4 +16,11 @@ public class Staff {
     public String generateEmail(){
         return firstName + "." + lastName + "@" + department + ".com";
     }
+
+    public String toString(){
+        // Include the package name and the name of the class this was created as
+        return this.getClass().getName() + "{staffId=" + this.staffId + ", firstName=" + this.firstName +  ", " +
+                "lastName=" + this.lastName +
+                ", department=" + this.department;
+    }
 }
