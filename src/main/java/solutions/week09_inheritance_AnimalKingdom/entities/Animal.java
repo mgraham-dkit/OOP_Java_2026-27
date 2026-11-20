@@ -43,13 +43,13 @@ public class Animal {
         }
 
         return Double.compare(weight, animal.weight) == 0
-                && name.equals(animal.name)
+                && name.equalsIgnoreCase(animal.name)
                 && dob.equals(animal.dob);
     }
 
     @Override
     public int hashCode() {
-        int result = name.hashCode();
+        int result = name.toLowerCase().hashCode();
         result = 31 * result + Double.hashCode(weight);
         result = 31 * result + dob.hashCode();
         return result;
