@@ -42,7 +42,8 @@ public class Animal {
     }
 
     @Override
-    public final boolean equals(Object o) {
+    // Be careful with generating equals - it can be generated as final, meaning it can't be overridden in subclasses!
+    public boolean equals(Object o) {
         if (!(o instanceof Animal animal)) {
             return false;
         }
@@ -78,5 +79,13 @@ public class Animal {
 
     public void display(){
         System.out.println(this.name + " was born on " + this.dob + " and weighs " + this.weight + " kg.");
+    }
+
+    public String getName(){
+        return this.name;
+    }
+
+    public double getWeight(){
+        return this.weight;
     }
 }
