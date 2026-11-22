@@ -1,6 +1,7 @@
 package solutions.week09_inheritance_AnimalKingdom.entities;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 public class Animal {
     protected String name;
@@ -36,6 +37,10 @@ public class Animal {
         this.dob = dob;
     }
 
+    public Animal(double weight, LocalDate dob){
+        this("Fido", weight, dob);
+    }
+
     @Override
     public final boolean equals(Object o) {
         if (!(o instanceof Animal animal)) {
@@ -64,5 +69,14 @@ public class Animal {
                 ", weight=" + weight +
                 ", dob=" + dob +
                 '}';
+    }
+
+    public int calcAge(){
+        LocalDate today = LocalDate.now();
+        return (int) ChronoUnit.YEARS.between(this.dob, today);
+    }
+
+    public void display(){
+        System.out.println(this.name + " was born on " + this.dob + " and weighs " + this.weight + " kg.");
     }
 }
