@@ -1,6 +1,5 @@
 package solutions.week09_inheritance_AnimalKingdom.apps;
 
-import solutions.week09_inheritance_AnimalKingdom.entities.Animal;
 import solutions.week09_inheritance_AnimalKingdom.entities.Dog;
 
 import java.time.LocalDate;
