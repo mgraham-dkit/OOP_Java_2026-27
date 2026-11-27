@@ -4,7 +4,6 @@ import solutions.week09_inheritance_AnimalKingdom.entities.Animal;
 import solutions.week09_inheritance_AnimalKingdom.entities.Cat;
 import solutions.week09_inheritance_AnimalKingdom.entities.Dog;
 
-import java.sql.Array;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,11 +21,11 @@ public class ExpandedMenagerie {
         animals.add(myPet);
         animals.add(mySecondPet);
         animals.add(myThirdPet);
-
-        for (int i = 0; i < 2; i++) {
-            Animal userAnimal = createAnimal();
-            animals.add(userAnimal);
-        }
+//
+//        for (int i = 0; i < 2; i++) {
+//            Animal userAnimal = createAnimal();
+//            animals.add(userAnimal);
+//        }
 
         Dog dog1 = new Dog("Lassie", 18, LocalDate.of(2021, 10, 20), "Schnowzer", null);
         Dog dog2 = new Dog("Frasier", 44, LocalDate.of(1989, 5, 20), "Terrier", "yappy");
@@ -64,6 +63,10 @@ public class ExpandedMenagerie {
 
         System.out.println("Animals with \"feline panleukopenia\" vaccination:");
         displayAnimals(vaccinatedCats);
+        
+        // Find animal with earliest name in alphabet
+        Animal earliestNamedAnimal = getEarliestNamedAnimal(animals);
+        System.out.println("Animal with earliest name (alphabetically) is " + earliestNamedAnimal.getName());
     }
 
     // Use a method to create an animal from user input
@@ -165,9 +168,7 @@ public class ExpandedMenagerie {
     }
 
     public static ArrayList<Animal> hasVaccination(ArrayList<Animal> animals, String targetVaccination){
-        if(animals == null){
-            throw new IllegalArgumentException("Animal list to be searched cannot be null");
-        }
+        validateForNull(animals);
 
         ArrayList<Animal> vaccinatedCats = new ArrayList<>();
         for (Animal animal : animals) {
@@ -179,5 +180,28 @@ public class ExpandedMenagerie {
         }
 
         return vaccinatedCats;
+    }
+
+    private static void validateForNull(ArrayList<Animal> animals) {
+        if(animals == null){
+            throw new IllegalArgumentException("Animal list to be searched cannot be null");
+        }
+    }
+
+    public static Animal getEarliestNamedAnimal(ArrayList<Animal> animals){
+        validateForNull(animals);
+        
+        if(animals.isEmpty()){
+            throw new IllegalArgumentException("Cannot identify the earliest member of an empty list");
+        }
+        
+        Animal earliestAnimal = animals.getFirst();
+        for (Animal animal : animals) {
+            if(animal.getName().compareTo(earliestAnimal.getName()) < 0){
+                earliestAnimal = animal;
+            }
+        }
+
+        return earliestAnimal;
     }
 }
