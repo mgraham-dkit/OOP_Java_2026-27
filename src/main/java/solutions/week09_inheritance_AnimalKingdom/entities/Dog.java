@@ -81,4 +81,8 @@ public class Dog extends Animal{
         result = 31 * result + Objects.hashCode(personality);
         return result;
     }
+
+    public void bark(){
+        System.out.println("Bark bark!");
+    }
 }
