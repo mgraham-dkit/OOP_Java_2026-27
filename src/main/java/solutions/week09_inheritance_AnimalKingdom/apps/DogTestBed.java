@@ -1,8 +1,11 @@
 package solutions.week09_inheritance_AnimalKingdom.apps;
 
+import solutions.week09_inheritance_AnimalKingdom.entities.Animal;
 import solutions.week09_inheritance_AnimalKingdom.entities.Dog;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class DogTestBed {
     static void main(String[] args) {
@@ -35,6 +38,18 @@ public class DogTestBed {
             System.out.println("The first wild dog and the second wild dog are equal");
         }else{
             System.out.println("The first wild dog and the second wild dog are different");
+        }
+
+        Animal myDog = new Dog("AnimalDog", 5, LocalDate.of(2024, 10, 31), "Terrier", "Yappy");
+        ArrayList<Animal> animals = new ArrayList<>(Arrays.asList(myPet, wildDog, anotherWildDog, myDog));
+        Animal demoAnimal = new Animal("Fluffy", 100, LocalDate.of(2018, 6, 15));
+        animals.add(demoAnimal);
+
+        for (Animal animal : animals) {
+            animal.display();
+            if(animal instanceof Dog doggie){
+                doggie.bark();
+            }
         }
     }
 }
